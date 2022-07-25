@@ -3,7 +3,6 @@ services:
   web:
     image: okteto/django:latest
     build: .
-    command: ["django-admin", "startproject", "principal", "."]
     volumes:
       - .:/app
     ports:
