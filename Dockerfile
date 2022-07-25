@@ -10,4 +10,6 @@ RUN pip install -r requirements.txt
 
 # Run the application:
 COPY manage.py .
+CMD ["python", "manage.py", "makemigrations", "principal"]
+CMD ["python", "manage.py", "migrate"]
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8080"]
