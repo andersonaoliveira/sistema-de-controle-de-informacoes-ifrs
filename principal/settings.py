@@ -70,11 +70,10 @@ WSGI_APPLICATION = 'principal.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'ifrs',
-        'USER': 'postgres',
-        'PASSWORD':'123456',
-        'HOST':'0.0.0.0',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'okteto',
+        'USER': 'okteto',
+        'PASSWORD':'okteto',
 	'PORT':'5432'
 	
     }
