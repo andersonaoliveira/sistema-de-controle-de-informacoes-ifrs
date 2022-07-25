@@ -11,7 +11,7 @@ echo "Database is ready"
 cd principal
 
 # prepare init migration
-python manage.py makemigrations principal
+python manage.py makemigrations
 echo "Created migrations"
 # migrate db, so we have the latest db schema
 python manage.py migrate
