@@ -74,7 +74,7 @@ DATABASES = {
         'NAME': 'ifrs',
         'USER': 'postgres',
         'PASSWORD':'123456',
-        'HOST':'::',
+        'HOST':'0.0.0.0',
 	'PORT':'5432'
 	
     }
