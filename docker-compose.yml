@@ -3,7 +3,7 @@ services:
   web:
     image: okteto/django:latest
     build: .
-    command: ./run_web.sh
+    command: ["python manage.py runserver 0.0.0.0:8080"]
     volumes:
       - .:/app
     ports:
