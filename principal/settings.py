@@ -74,7 +74,7 @@ DATABASES = {
         'NAME': 'ifrs',
         'USER': 'postgres',
         'PASSWORD':'123456',
-        'HOST':'db-django-andersonaoliveira.cloud.okteto.net',
+        'HOST':'http://db:5432/',
 	'PORT':'5432'
 	
     }
