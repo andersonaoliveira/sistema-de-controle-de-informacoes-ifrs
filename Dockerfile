@@ -1,14 +1,13 @@
-FROM python:3.8
+FROM python:3.9-slim-bullseye
 
-ENV PYTHONUNBUFFERED true 
+ENV VIRTUAL_ENV=/opt/venv
+RUN python3 -m venv $VIRTUAL_ENV
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 
-WORKDIR /app/
-
-COPY requirements.txt requirements.txt
-
+# Install dependencies:
+COPY requirements.txt .
 RUN pip install -r requirements.txt
 
-COPY . .
-
-CMD ["cd app"]
-CMD ["python manage.py runserver 0.0.0.0:8080"]
+# Run the application:
+COPY manage.py .
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8080"]
