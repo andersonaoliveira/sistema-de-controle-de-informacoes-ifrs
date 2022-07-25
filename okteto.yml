@@ -1,9 +1,1 @@
 icon: https://ifrs.edu.br/wp-content/themes/ifrs-portal-theme/favicons/favicon-16x16.png
-
-deploy:
-  - kubectl apply -f manifests
-dev:
-  web:
-    command: ["sh", "-c", "./run_web.sh"]
-    sync:
-      - .:/app

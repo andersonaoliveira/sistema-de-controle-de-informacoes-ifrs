@@ -44,7 +44,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'myproject.urls'
+ROOT_URLCONF = 'principal.urls'
 
 TEMPLATES = [
     {
@@ -62,7 +62,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'myproject.wsgi.application'
+WSGI_APPLICATION = 'principal.wsgi.application'
 
 
 # Database
@@ -70,13 +70,12 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgres',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'ifrs',
         'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': 'db',
-        'PORT': 'DB_PORT_5432_TCP_PORT',
-    },
+        'PASSWORD':'123456',
+        'HOST':'localhost'
+    }
 }
 
 
@@ -118,7 +117,7 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
-	os.path.join(BASE_DIR, 'myproject/static')
+	os.path.join(BASE_DIR, 'principal/static')
 ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
