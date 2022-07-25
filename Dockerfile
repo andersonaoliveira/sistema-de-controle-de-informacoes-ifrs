@@ -9,3 +9,6 @@ COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
 COPY . .
+
+CMD ["cd app"]
+CMD ["python manage.py runserver 0.0.0.0:8080"]
