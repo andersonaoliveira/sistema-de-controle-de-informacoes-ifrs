@@ -74,7 +74,7 @@ DATABASES = {
         'NAME': 'postgres',
         'USER': 'postgres',
         'PASSWORD':'postgres',
-        'HOST':'postgres://root:root@postgres:5432'
+        'HOST':'/tmp/.s.PGSQL.5432'
     }
 }
 
