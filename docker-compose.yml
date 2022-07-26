@@ -2,7 +2,13 @@ version: '3.4'
 services:
   web:
     image: okteto/django:latest
+    container_name: web
+    networks: 
+      - django-network
     build: .
+    public: true
+    depends_on:
+      - db
     volumes:
       - .:/app
     ports:
@@ -10,10 +16,16 @@ services:
       
   db:
     image: postgres:9.4
-    hostname: db
+    container_name: db
+    networks: 
+      - django-network
+    public: true
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=postgres
     ports:
       - "5432:5432"
+networks: 
+    django-network:
+        driver: bridge
