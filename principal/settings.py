@@ -74,7 +74,7 @@ DATABASES = {
         'NAME': 'postgres',
         'USER': 'postgres',
         'PASSWORD':'postgres',
-        'HOST':'http://localhost:5432',
+        'HOST':'http://okteto-db.localhost:5432',
 	'PORT':5432
     }
 }
