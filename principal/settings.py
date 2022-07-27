@@ -74,7 +74,7 @@ DATABASES = {
         'NAME': 'postgres',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
-        'HOST': 'localhost:5432'
+        'HOST': 'https://db-andersonaoliveira.cloud.okteto.net:5432/'
     },
 }
 
