@@ -7,6 +7,10 @@ do
     sleep 1
 done
 
+echo "Database is ready"
+
+cd app
+
 python manage.py makemigrations
 
 python manage.py migrate
