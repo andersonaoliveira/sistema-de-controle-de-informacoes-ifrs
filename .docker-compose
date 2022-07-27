@@ -1,0 +1,53 @@
+version: '3.4'
+services:
+  web:
+    image: okteto/django:latest
+    container_name: web
+    networks: 
+      - django-network
+    build: .
+    depends_on:
+      - postgres
+    volumes:
+      - .:/app
+    ports:
+      - "8080:8080"
+
+  postgres:
+    container_name: postgres_container
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      PGDATA: /data/postgres
+    volumes:
+       - postgres:/data/postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - django-network
+    restart: unless-stopped
+  
+  pgadmin:
+    container_name: pgadmin_container
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: andersondeaguiardeoliveira@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: 123456
+      PGADMIN_CONFIG_SERVER_MODE: 'True'
+    volumes:
+       - pgadmin:/var/lib/pgadmin
+
+    ports:
+      - "5050:5050"
+    networks:
+      - django-network
+    restart: unless-stopped
+
+networks:
+  django-network:
+    driver: bridge
+
+volumes:
+    postgres:
+    pgadmin:
