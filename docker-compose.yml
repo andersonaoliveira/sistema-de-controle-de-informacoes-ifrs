@@ -4,6 +4,7 @@ services:
     image: okteto/django:latest
     container_name: web
     build: .
+    command: ./run_web.sh
     volumes:
       - .:/app
     ports:
