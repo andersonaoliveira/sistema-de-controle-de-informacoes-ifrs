@@ -8,8 +8,7 @@ ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 
-# Run the application:
-COPY manage.py .
+# copy code base to the image
 COPY . .
 
 CMD ["./run_web.sh"]
