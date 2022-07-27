@@ -5,8 +5,9 @@ services:
     container_name: web
     networks: 
       - django-network
-    build: .
-    dockerfile: web.dockerfile
+    build: 
+      context: .
+      dockerfile: web.Dockerfile
     depends_on:
       - postgres
     volumes:
