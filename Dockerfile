@@ -11,4 +11,4 @@ RUN pip install -r requirements.txt
 # copy code base to the image
 COPY . .
 
-CMD ["./run_web.sh"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8080"]
