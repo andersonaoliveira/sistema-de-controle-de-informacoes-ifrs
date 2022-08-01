@@ -1,15 +1,14 @@
-FROM python:3.8
+ENV PYTHONUNBUFFERED 1
+ENV PYTHONIOENCODING UTF-8
+ENV LANG pt_BR.UTF-8
+ENV DJANGO_SETTINGS_MODULE sdv.settings.qa
+ENV DEBUG False
 
-ENV VIRTUAL_ENV=/opt/venv
-RUN python3 -m venv $VIRTUAL_ENV
-ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+RUN apt-get -y update
 
-# Install dependencies:
-COPY requirements.txt .
+COPY . /app
+WORKDIR /app
+RUN ["chmod", "+x","docker-entrypoint.sh"]
 RUN pip install -r requirements.txt
 
-# Run the application:
-COPY manage.py .
-COPY . .
-
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8080"]
+ENTRYPOINT ["sh","docker-entrypoint.sh"]
